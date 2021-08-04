@@ -14,4 +14,6 @@ class Job {
     this.tags,
     this.description,
   );
+
 }
+

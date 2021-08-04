@@ -22,80 +22,135 @@ class JobItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
-      child: Card(
-        color: Color(0xffffb60e),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              flex: 1,
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Container(child: Image.network(logo),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 5,
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(4, 4, 4, 2),
-                        child: Text(
+      child: GestureDetector(
+        onTap: () {
+          showModalBottomSheet<void>(
+            context: context,
+            builder: (BuildContext context) {
+              return Container(
+                height: 300,
+                color: Colors.amber,
+                child: Center(
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
+                    child: ListView(
+                      children: <Widget>[
+                        Text(
                           position,
-                          style: TextStyle(color: Colors.red,
-                              fontSize: 19, fontStyle: FontStyle.italic),
+                          style: TextStyle(color: Colors.red, fontSize: 18),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: Text(location,style: TextStyle(color: Colors.white),),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(3.0),
-                              child: Text(
-                                date,
-                                style: TextStyle(color: Colors.lightBlue,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.fromLTRB(4, 2, 4, 4),
-                        height: 25,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (BuildContext context, int index) {
-                            return JobTagItem(tags[index]);
-                          },
-                          itemCount: tags.length,
-                        ),
-                      ),
-                    ],
+                        SizedBox(height: 15),
+                        Text(description),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          );
+        },
+        child: Card(
+          elevation: 10,
+          color: Color(0xffddffff),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Container(
+                    child: Image.network(logo),
                   ),
                 ),
               ),
-            )
-          ],
+              Expanded(
+                flex: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(4, 4, 4, 2),
+                          child: Text(
+                            position,
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 19,
+                                fontStyle: FontStyle.italic),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Text(
+                                    location,
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: Text(
+                                  date,
+                                  style: TextStyle(
+                                    color: Colors.lightBlue,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.fromLTRB(4, 2, 4, 4),
+                          height: 25,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemBuilder: (BuildContext context, int index) {
+                              return JobTagItem(tags[index]);
+                            },
+                            itemCount: tags.length,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
+/*class ShowDescription extends StatelessWidget {
+  final String position;
+  final String description;
+
+  ShowDescription(this.position, this.description);
+
+  @override
+  Widget build(BuildContext context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Column(
+            children: <Widget>[Text('deneme')],
+          );
+        });
+  }
+}*/
