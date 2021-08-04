@@ -29,19 +29,21 @@ class JobItemWidget extends StatelessWidget {
             builder: (BuildContext context) {
               return Container(
                 height: 300,
-                color: Colors.amber,
+                color: Colors.white70,
                 child: Center(
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
                     child: ListView(
                       children: <Widget>[
-                        Text(
-                          position,
-                          style: TextStyle(color: Colors.red, fontSize: 18),
+                        Center(
+                          child: Text(
+                            position,
+                            style: TextStyle(color: Colors.red, fontSize: 24),
+                          ),
                         ),
                         SizedBox(height: 15),
-                        Text(description),
+                        Text(description,style: TextStyle(fontSize: 16),),
                       ],
                     ),
                   ),
@@ -52,7 +54,7 @@ class JobItemWidget extends StatelessWidget {
         },
         child: Card(
           elevation: 10,
-          color: Color(0xffddffff),
+          color: Color(0xbfffffff),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -80,9 +82,7 @@ class JobItemWidget extends StatelessWidget {
                           child: Text(
                             position,
                             style: TextStyle(
-                                color: Colors.red,
-                                fontSize: 19,
-                                fontStyle: FontStyle.italic),
+                                fontSize: 18,),
                           ),
                         ),
                         Padding(
@@ -96,7 +96,7 @@ class JobItemWidget extends StatelessWidget {
                                   padding: const EdgeInsets.all(2.0),
                                   child: Text(
                                     location,
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(color: Colors.blueGrey),
                                   ),
                                 ),
                               ),

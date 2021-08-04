@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color(0xff88fEE9),
+        backgroundColor: Colors.white70,
         body: JobListPage(),
       ),
     );

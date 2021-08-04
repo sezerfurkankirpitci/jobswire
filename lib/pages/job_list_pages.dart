@@ -13,7 +13,6 @@ class JobListPage extends StatefulWidget {
 }
 
 class _JobListPageState extends State<JobListPage> {
-
   @override
   Future getJobData() async {
     print('Başladı');
@@ -70,7 +69,8 @@ class _JobListPageState extends State<JobListPage> {
                               snapshot.data[index].logo,
                               snapshot.data[index].position,
                               snapshot.data[index].location,
-                              TimeAgo.timeAgoSinceDate(snapshot.data[index].date)
+                              TimeAgo.timeAgoSinceDate(
+                                      snapshot.data[index].date)
                                   .toString(),
                               snapshot.data[index].tags,
                               snapshot.data[index].description);
